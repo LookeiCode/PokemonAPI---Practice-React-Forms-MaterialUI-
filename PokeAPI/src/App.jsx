@@ -1,5 +1,18 @@
+// If we are importing more than one thing from the same library or component we can include them in the same {} separated by a comma
+
 import { useState, useEffect } from 'react'
 import './App.css'
+
+import Button from '@mui/material/Button';
+
+
+// we import the "ListOfPokemon" component from the "ListOfPokemon.jsx" file so that we can use the component here.
+// we will be using it in the "App" components "return" at the bottom.
+import ListOfPokemon from './components/ListOfPokemon'
+
+
+
+
 
 function App() {
 
@@ -35,12 +48,13 @@ function App() {
     getPokemon();
   }, [])
 
+
+// see the components folder and "ListOfPokemon" file for more info on passing the "ListOfPokemon" component to the "App" component in this file which is how we render the names on the page
+
   return (
-    <>
-      {pokemons.map(pokemon => (
-        <h1 key={pokemon.name}>{pokemon.name}</h1>
-      ))}
-    </>
+    <div>
+      <ListOfPokemon pokemons={pokemons} />
+    </div>
   );
 }
 
